@@ -24,7 +24,7 @@ function download (url, filename) {
 
 export function spider (url) {
   const filename = urlToFilename(url)
-  return fsPromises.readFile(filename, 'utf8')
+  return fsPromises.access(filename)
     .catch((err) => {
       if (err.code !== 'ENOENT') {
         throw err

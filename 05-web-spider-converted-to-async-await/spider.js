@@ -21,7 +21,7 @@ async function download (url, filename) {
 export async function spider (url) {
   const filename = urlToFilename(url)
   try {
-    await fsPromises.readFile(filename, 'utf8')
+    await fsPromises.access(filename)
   } catch (err) {
     console.log(err)
     if (err.code !== 'ENOENT') {
