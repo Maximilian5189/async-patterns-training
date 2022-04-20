@@ -3,9 +3,6 @@ import { dirname } from 'path'
 import superagent from 'superagent'
 import mkdirp from 'mkdirp'
 import { urlToFilename } from './utils.js'
-import { promisify } from 'util'
-
-const mkdirpPromises = promisify(mkdirp)
 
 function download (url, filename) {
   console.log(`Downloading ${url}`)
@@ -13,7 +10,7 @@ function download (url, filename) {
   return superagent.get(url)
     .then((res) => {
       content = res.text
-      return mkdirpPromises(dirname(filename))
+      return mkdirp(dirname(filename))
     })
     .then(() => fsPromises.writeFile(filename, content))
     .then(() => {
