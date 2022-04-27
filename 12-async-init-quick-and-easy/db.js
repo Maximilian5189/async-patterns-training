@@ -8,7 +8,7 @@ class DB extends EventEmitter {
     setTimeout(() => {
       this.connected = true
       this.emit('connected')
-    }, 500)
+    }, 1500)
   }
 
   async query (queryString) {

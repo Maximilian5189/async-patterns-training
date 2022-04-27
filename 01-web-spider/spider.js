@@ -13,7 +13,8 @@ export function spider (url, cb) {
         if (err) {
           cb(err)
         } else {
-          mkdirp(path.dirname(filename), err => { // Ordner erstellen
+          const filePath = path.dirname(filename)
+          mkdirp(filePath, err => { // Ordner erstellen
             if (err) {
               cb(err)
             } else {
@@ -32,4 +33,5 @@ export function spider (url, cb) {
       cb(null, filename, false)
     }
   })
+
 }

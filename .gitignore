@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 9781839214110_Code
 test.txt*
+test_large.txt*

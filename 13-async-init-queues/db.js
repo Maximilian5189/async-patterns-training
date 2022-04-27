@@ -11,9 +11,10 @@ class DB extends EventEmitter {
       return new Promise((resolve, reject) => {
         const command = () => {
           this.query(queryString) // query nochmal aufrufen; an dieser Stelle ist immer connected = true
-            .then(resolve, reject)
-        }
+            .then(resolve, reject) // resolve, reject von oben reinreichen; dadurch werden diese erst ausgeführt, wenn query wirklich ausgeführt wurde
+        }                          // und auch erst in diesem Moment der Promise aufgelöst
         this.commandsQueue.push(command)
+        return
       })
     }
     // hier würde Query ausgeführt
@@ -27,7 +28,7 @@ class DB extends EventEmitter {
       this.emit('connected')
       this.commandsQueue.forEach(command => command())
       this.commandsQueue = []
-    }, 500)
+    }, 1500)
   }
 }
 

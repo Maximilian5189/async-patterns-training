@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/02-web-spider-converted-to-async-await/spider-cli.js"
+            "program": "${workspaceFolder}/02-web-spider-functions/spider-cli.js"
         }
     ]
 }
