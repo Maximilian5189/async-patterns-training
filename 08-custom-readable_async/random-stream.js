@@ -1,15 +1,15 @@
-import { Readable } from 'stream'
-import Chance from 'chance'
-import delay from 'delay'
+import { Readable } from "stream";
+import Chance from "chance";
+import delay from "delay";
 
-const chance = new Chance()
+const chance = new Chance();
 
 export class RandomStream extends Readable {
-  times
-  constructor (options) {
-    super(options)
-    this.emittedBytes = 0
-    this.times = 0
+  times;
+  constructor(options) {
+    super(options);
+    this.emittedBytes = 0;
+    this.times = 0;
   }
 
   // Aus der Doku: Achtung, es geht um read, nicht um _read!
@@ -21,17 +21,17 @@ export class RandomStream extends Readable {
   // synchron geht das, aber asynchron wären die Promises nicht aufgelöst
 
   // ansonsten wird _read automatisch aufgerufen (siehe index.js)
-  async _read (size) {
+  async _read(size) {
     if (this.times == 5) {
-      this.push(null)
-      return
+      this.push(null);
+      return;
     }
     // setTimeout(() => {
-      await delay(500)
-      const chunk = chance.string({ length: size })
-      this.push(chunk, 'utf8') // chunk wird in internen Buffer gepusht
-      this.emittedBytes += chunk.length
-      this.times++
+    await delay(500);
+    const chunk = chance.string({ length: size });
+    this.push(chunk, "utf8"); // chunk wird in internen Buffer gepusht
+    this.emittedBytes += chunk.length;
+    this.times++;
     // }, 500);
   }
 }
