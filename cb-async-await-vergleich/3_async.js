@@ -1,17 +1,17 @@
-import * as fs from "fs";
+import * as fs from "fs"
 
 const updateFile = async () => {
-  let data = await fs.promises.readFile("data.json");
+  let data = await fs.promises.readFile("data.json")
 
-  data = JSON.parse(data);
+  data = JSON.parse(data)
 
-  data.datapoint = "four";
+  data.datapoint = "four"
 
-  await fs.promises.writeFile("data.json", JSON.stringify(data));
-};
+  await fs.promises.writeFile("data.json", JSON.stringify(data))
+}
 
 try {
-  updateFile();
+  updateFile()
 } catch (err) {
-  console.log(err);
+  console.log(err)
 }

@@ -1,22 +1,22 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from "events"
 
 class DB extends EventEmitter {
-  connected = false;
+  connected = false
 
   connect() {
     // simulate the delay of the connection
     setTimeout(() => {
-      this.connected = true;
-      this.emit("connected");
-    }, 1500);
+      this.connected = true
+      this.emit("connected")
+    }, 1500)
   }
 
   async query(queryString) {
     if (!this.connected) {
-      throw new Error("Not connected yet");
+      throw new Error("Not connected yet")
     }
-    console.log(`Query executed: ${queryString}`);
+    console.log(`Query executed: ${queryString}`)
   }
 }
 
-export const db = new DB();
+export const db = new DB()

@@ -1,15 +1,15 @@
-import { once } from "events";
-import { db } from "./db.js";
+import { once } from "events"
+import { db } from "./db.js"
 
-db.connect();
+db.connect()
 
 async function updateLastAccess() {
   if (!db.connected) {
-    await once(db, "connected");
+    await once(db, "connected")
   }
 
-  await db.query(`INSERT (${Date.now()}) INTO "LastAccesses"`);
+  await db.query(`INSERT (${Date.now()}) INTO "LastAccesses"`)
 }
 
-updateLastAccess();
-updateLastAccess();
+updateLastAccess()
+updateLastAccess()

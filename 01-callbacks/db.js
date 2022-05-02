@@ -1,6 +1,6 @@
 export const query = (article, cb) => {
-  console.log("query", article);
+  console.log("query", article)
   setTimeout(() => {
-    cb(null, { data: `data from db for ${article}` });
-  }, 500);
-};
+    cb(null, { data: `data from db for ${article}` })
+  }, 500)
+}
