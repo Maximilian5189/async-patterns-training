@@ -1,6 +1,6 @@
 import superagent from "superagent"
 import { query } from "./db.js"
-// import { query } from './db-with-err.js'
+// import { query } from "./db-with-err.js" // use this query to test failing test case
 
 const article = "1000363"
 
@@ -12,7 +12,7 @@ const getData = async (article) => {
   return { ...articleData, ...data }
 }
 
-// Achtung: top-level await
+// top-level await needs Node Version >= 17
 try {
   console.log("it works:", await getData(article))
 } catch (err) {

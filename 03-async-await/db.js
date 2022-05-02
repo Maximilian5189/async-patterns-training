@@ -1,6 +1,6 @@
-export const query = (param) =>
+export const query = (article) =>
   new Promise((resolve, reject) => {
-    console.log(`Query ${param}`)
+    console.log(`Query ${article}`)
     setTimeout(() => {
       resolve({ data: `data from db for ${article}` })
     }, 500)

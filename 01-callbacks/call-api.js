@@ -1,5 +1,6 @@
 import superagent from "superagent"
 import { query } from "./db.js"
+// import { query } from "./db-with-err.js" // use this query to test failing test case
 
 const getData = (article, cb) => {
   const url = `https://article-service.prod-eks.dbs.obi.solutions/api/articles/v1/de/de?articleNumbers=${article}`

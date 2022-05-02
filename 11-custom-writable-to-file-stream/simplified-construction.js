@@ -1,9 +1,9 @@
 import { Writable } from "stream"
 import { promises as fs } from "fs"
 import { dirname, join } from "path"
-import mkdirp from "mkdirp-promise"
+import mkdirp from "mkdirp"
 
-const tfs = new Writable({
+const writeStream = new Writable({
   objectMode: true,
   write(chunk, encoding, cb) {
     mkdirp(dirname(chunk.path))
@@ -13,7 +13,7 @@ const tfs = new Writable({
   },
 })
 
-tfs.write({ path: join("files", "file1.txt"), content: "Hello" })
-tfs.write({ path: join("files", "file2.txt"), content: "Node.js" })
-tfs.write({ path: join("files", "file3.txt"), content: "streams" })
-tfs.end(() => console.log("All files created"))
+writeStream.write({ path: join("files", "file1.txt"), content: "Hello" })
+writeStream.write({ path: join("files", "file2.txt"), content: "Node.js" })
+writeStream.write({ path: join("files", "file3.txt"), content: "streams" })
+writeStream.end(() => console.log("all files created"))

@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mkdirp-promise": "^5.0.1"
+    "mkdirp": "^1.0.4"
   },
   "engines": {
     "node": ">=14"

@@ -1,6 +1,6 @@
 import superagent from "superagent"
 import { query } from "./db.js"
-// import { query } from './db-with-err.js'
+// import { query } from "./db-with-err.js" // use this query to test failing test case
 
 const article = "1000363"
 
