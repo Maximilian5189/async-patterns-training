@@ -11,14 +11,14 @@ export class RandomStream extends Readable {
     this.times = 0
   }
 
-  _read(size) {
+  _read() {
     if (this.times == 5) {
       this.push(null)
       return
     }
 
-    const chunk = chance.string({ length: size })
-    this.push(chunk, "utf8") // chunk wird in internen Buffer gepusht
+    const chunk = chance.string({ length: 10 })
+    this.push(chunk, "utf8")
     this.emittedBytes += chunk.length
     this.times++
   }
