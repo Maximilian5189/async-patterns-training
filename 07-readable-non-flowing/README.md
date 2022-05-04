@@ -18,4 +18,10 @@ Alternatively:
 cat <path_of_file> | node read-stdin.js
 ```
 
+or
+
+```bash
+// echo "random text" | node read-stdin.js
+```
+
 to consume an arbitrary file.
