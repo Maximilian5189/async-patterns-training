@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/03/call-api.js"
+      "program": "${workspaceFolder}/13-async-init-queues/index.js"
     }
   ]
 }

@@ -4,7 +4,6 @@ class DB extends EventEmitter {
   connected = false
 
   connect() {
-    // simulate the delay of the connection
     setTimeout(() => {
       this.connected = true
       this.emit("connected")
@@ -15,7 +14,7 @@ class DB extends EventEmitter {
     if (!this.connected) {
       throw new Error("Not connected yet")
     }
-    console.log(`Query executed: ${queryString}`)
+    console.log("Query executed:", queryString)
   }
 }
 

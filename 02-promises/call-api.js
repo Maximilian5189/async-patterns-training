@@ -2,10 +2,10 @@ import superagent from "superagent"
 import { query } from "./db.js"
 // import { query } from "./db-with-err.js" // use this query to test failing test case
 
-const article = "1000363"
+const article = "6717516"
 
 const getData = (article) => {
-  const url = `https://article-service.prod-eks.dbs.obi.solutions/api/articles/v1/de/de?articleNumbers=${article}`
+  const url = `https://article-service.dev-eks.dbs.obi.solutions/api/articles/v1/de/de?articleNumbers=${article}`
   let articleData // damit wir articleData nutzen könnten, müssten wir die Variable hier bereits definieren
   return superagent
     .get(url)

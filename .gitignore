@@ -4,3 +4,5 @@ node_modules
 test.txt*
 test_large.txt*
 old
+videos
+.vscode

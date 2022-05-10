@@ -7,8 +7,7 @@ async function updateLastAccess(queryNo) {
 }
 
 async function main() {
-  await updateLastAccess(1) // Promise wird erst aufgelöst, sobald mit DB verbunden
-  // updateLastAccess(1) // wenn wir den ersten Query nicht awaiten, werden beide Queries gequeued
+  await updateLastAccess(1)
   console.log("waited for first query")
   updateLastAccess(2)
 }
